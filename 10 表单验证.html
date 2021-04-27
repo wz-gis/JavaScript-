@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #prompt{
+            font-size: 12px;
+            color: darkgray
+        }
+        #score{
+            border: 1px solid darkgray;
+        }
+        .right{
+			background: url('images/right.png') no-repeat 5px center;
+			background-size: 15px 15px;
+			padding-left: 20px;
+			color: lightgreen !important;
+		}
+		.error{
+			background: url('images/error.png') no-repeat 5px center;
+			background-size: 15px 15px;
+			padding-left: 20px;
+			color: red !important;
+		}
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <label for="score"> 您的成绩： </label>
+        <input type="text" placeholder="请输入分数" id="score">
+        <span id="prompt">请输入你的成绩</span>
+    </div>
+    <script>
+        function $(id){
+			return typeof id === 'string' ? document.getElementById(id) : null;
+		}
+        //input框失去焦点
+        $("score").onblur = function(){
+            // parse
+            var value = parseFloat(this.value);
+            if(isNaN(value)){
+                $("prompt").innerHTML = "输入有误";
+                $("prompt").className = 'error';
+                this.style.borderColor = "red";
+
+            }else if(value >=0 && value <= 100){    
+                $("prompt").innerHTML = "输入正确";
+                $("prompt").className = 'right';
+                this.style.borderColor = "lightgreen";
+
+            }else{
+                $("prompt").innerHTML = "请输入0-100的数字";
+                $("prompt").className = 'error';
+                this.style.borderColor = "red";
+            }
+
+        }
+        //input 获得焦点 恢复原来状态
+        $("score").onfocus = function(){
+            $("prompt").innerHTML = "请输入你的成绩";
+            $("prompt").className = '';
+            this.value = '';
+        }
+    </script>
+
+</body>
+</html>

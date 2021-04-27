@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> DOM操作 </title>
+    <style type="text/css">
+        #active{
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"> 
+        <p id="active" onclick="add()"> 你好，世界 </p>
+        <p id="active2" onmouseover="add2()"> 你好，地球 </p>
+    </div>
+    <form>
+        <p class="name">
+            <label for="username">用户名</label>
+            <input type="text" name="user" id="user" oninput="read()">
+        </p>
+        <p class="pwd">
+            <label for="pwd">密码</label>
+            <input type="password" name="pwd" id="pwd">
+        </p>
+        <input type="submit" name="" >
+
+    </form>
+        
+</body>
+<script type="text/javascript">
+    var oDiv = document.getElementById("box");
+    var oActive = document.getElementById("active");
+
+    console.log(oDiv.getAttribute("id"));//获取属性
+    console.log(oDiv.nodeName);//获取节点名称div
+    console.log(oDiv.childNodes[1]);//获取子节点
+    console.log(oActive.nextElementSibling);//获取下一个元素节点
+
+    //增删查改
+    var newNode = document.createElement('p');
+    newNode.innerHTML = "你好，武汉";
+    newNode.setAttribute("id","active3");
+    oDiv.appendChild(newNode);
+
+    console.log(newNode.getAttribute("id"));
+
+    //事件
+    function add(){
+        alert("111");
+    }
+    function add2(){
+        console.log("111");
+    }
+    function read(){
+
+    }
+    
+
+    
+</script>
+
+</html>

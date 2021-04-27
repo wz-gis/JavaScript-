@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wrap{
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        #wrap .item{
+            width: 248px;
+            height: 360px;
+            font-size: 13px;
+        }
+        #wrap .item .title{
+            width: 248px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            padding: 0px 20px;
+            /* text-align: center; */
+        }
+        .imgContainer{
+            width: 248px;
+            display: table-cell;/* 充当文本居中 */
+            text-align: center;
+            
+        }
+        #wrap .item .price{
+            color:red;
+            font-size: 18px;
+            font-weight: bold;/* 字体加粗 bold对应700 */
+            padding: 0px 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">3列</button>
+    <button class="btn">4列</button>
+    <button class="btn">5列</button>
+    <div id="wrap">
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_1.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_2.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_3.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_4.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_5.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_6.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_1.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="images/taobao_7.jpg" alt="">
+            </div>
+            <p class="title">纯色短袖</p>
+            <p class="price">￥69</p>
+        </div>
+    </div>
+    <script>
+        var btns = document.getElementsByClassName("btn");
+        var items = document.getElementsByClassName("item");
+        btns[0].onclick = function(){
+            resetLayout(3);
+        }
+        btns[1].onclick = function(){
+            resetLayout(4);
+        }
+        btns[2].onclick = function(){
+            resetLayout(5);
+        }
+        
+        function resetLayout(column){
+            for(var i = 0; i < items.length; i++){
+                items[i].style.float = "left";
+                items[i].parentElement.style.width = (column * items[i].offsetWidth) + 'px';
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            border: 1px solid #ccc;
+            width: 430px;
+            height: 70px;
+            padding-top: 430px;
+            background: url('images/big_pic1.jpg') no-repeat;/* 取消平铺 */
+            
+        }
+        #box ul li{
+            display: inline-block;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li id='item1'>
+                <img src="images/pic1.jpg" alt="">
+            </li>
+            <li id='item2'>
+                <img src="images/pic2.jpg" alt="">
+            </li>
+            <li id='item3'>
+                <img src="images/pic3.jpg" alt="">
+            </li>
+            <li id='item4'>
+                <img src="images/pic4.jpg" alt="">
+            </li>
+            <li id='item5'>
+                <img src="images/pic5.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+        //判断id为字符串类型 返回元素
+        function $(id){
+            return typeof id === 'string'? document.getElementById(id) : null;
+        }
+
+        //改变背景图片
+        function changebgcImg(picId,imgSrc){
+            $(picId).onmouseover = function(){
+                $('box').style.background = imgSrc;
+            }
+        }
+
+        changebgcImg('item1',`url('images/big_pic1.jpg') no-repeat`);
+        changebgcImg('item2',`url('images/big_pic2.jpg') no-repeat`);
+        changebgcImg('item3',`url('images/big_pic3.jpg') no-repeat`);
+        changebgcImg('item4',`url('images/big_pic4.jpg') no-repeat`);
+        changebgcImg('item5',`url('images/big_pic5.jpg') no-repeat`);
+
+    </script>
+
+</body>
+</html>

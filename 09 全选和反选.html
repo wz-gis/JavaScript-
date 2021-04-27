@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选和反选</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #panel{
+            background-color: aliceblue;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 400px;
+            padding: 20px;
+            margin: 100px auto;
+        }
+        #panel-footer{
+            text-align:center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <div class="panel-title">
+            <h3>千千音乐盒</h3>
+            <hr>
+        </div>
+        <div id="panel-content">
+            <input type="checkbox">遥远的歌<br>
+            <input type="checkbox">今夜的雨<br>
+            <input type="checkbox">下山<br>
+            <input type="checkbox">后来<br>
+            <input type="checkbox">我们都是好孩子<br>
+        </div>
+        <div id="panel-footer">
+            <hr>
+            <button id="allSelect">全选</button>
+            <button id="cancelSelect">取消选中</button>
+            <button id="reverseSelect">反选</button>
+        </div>
+    </div>
+    <script>
+        function $(id){
+            return typeof id === "string"? document.getElementById(id) : null
+        }
+        var inputs = document.getElementsByTagName("input");
+
+        //全选
+        $("allSelect").onclick = function(){
+            for(var i = 0; i < inputs.length; i++){
+                inputs[i].checked = true;
+            }
+        }
+        //取消全选
+        $("cancelSelect").onclick = function(){
+            for(var i = 0; i < inputs.length; i++){
+                inputs[i].checked = false;
+            }
+        }
+        //反选
+        $("reverseSelect").onclick = function(){
+            for(var i = 0; i < inputs.length; i++){
+                inputs[i].checked = !inputs[i].checked;
+            }
+        }
+    </script>
+
+</body>
+</html>
